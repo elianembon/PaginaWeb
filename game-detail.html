@@ -3,128 +3,213 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Detalle del Juego | Indie Games Studio</title>
+    <title>Detalle del Juego | Long Band Games</title>
+    <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome para íconos -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="../css/style.css">
+    <!-- Google Fonts (para tipografía profesional) -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto:wght@400;700&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <!-- CSS personalizado -->
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        /* Estilos específicos para esta página, adaptados al tema oscuro */
+        .rating i {
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--bs-muted-light); /* Color por defecto de las estrellas */
+            transition: color 0.2s ease;
+        }
+        .rating i.fas {
+            color: #ffc107; /* Color de estrellas rellenas (amarillo de Bootstrap) */
+        }
+        .social-share .btn {
+            border-color: var(--bs-secondary-subtle);
+            color: var(--bs-muted-light);
+            transition: all 0.3s ease;
+        }
+        .social-share .btn:hover {
+            background-color: var(--bs-dark-section);
+            color: var(--bs-red-primary);
+            border-color: var(--bs-red-primary);
+        }
+    </style>
 </head>
-<body>
-    <!-- Navbar (igual que en index.html) -->
-    
-    <main class="container my-5">
-        <div class="row">
-            <div class="col-lg-8">
-                <h1 id="game-title" class="fw-bold mb-4">Título del Juego</h1>
-                
-                <!-- Video del juego -->
-                <div class="ratio ratio-16x9 mb-4">
-                    <video controls poster="../assets/images/game1.png">
-                        <source src="../assets/videos/trailer1.mp4" type="video/mp4">
-                        Tu navegador no soporta el elemento de video.
-                    </video>
+<body class="bg-dark-alt text-white">
+    <!-- Navbar (Copia y pega la Navbar de tu index.html aquí) -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <img src="assets/images/logo.png" alt="Long Band Games Logo" class="logo-navbar me-2">
+                <span class="fw-bold fs-4 text-uppercase d-none d-sm-block">Long Band Games</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menú</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                 </div>
-                
-                <!-- Descripción del juego -->
-                <div class="mb-5">
-                    <h3 class="mb-3">Sobre el juego</h3>
-                    <p id="game-description">Descripción detallada del juego. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in dui mauris. Vivamus hendrerit arcu sed erat molestie vehicula. Sed auctor neque eu tellus rhoncus ut eleifend nibh porttitor.</p>
-                    
-                    <h4 class="mt-4">Características</h4>
-                    <ul id="game-features">
-                        <li>Modo historia emocionante</li>
-                        <li>Gráficos pixel art de alta calidad</li>
-                        <li>Banda sonora original</li>
-                        <li>Multiplayer local</li>
+                <div class="offcanvas-body">
+                    <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Inicio</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle active" aria-current="page" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Juegos
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-dark">
+                                <li><a class="dropdown-item" href="games.html#featured">Juegos Destacados</a></li>
+                                <li><a class="dropdown-item" href="games.html#all-games">Lista Cronológica</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="games.html#upcoming">Próximos Lanzamientos</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="missions.html">Misiones</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Contacto
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-dark">
+                                <li><a class="dropdown-item" href="contact.html?type=job">Currículums</a></li>
+                                <li><a class="dropdown-item" href="contact.html?type=bug">Reportar Bugs</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="contact.html?type=general">General</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item d-lg-none">
+                            <a class="nav-link text-primary" href="login.html">Iniciar Sesión</a>
+                        </li>
+                        <li class="nav-item d-lg-none">
+                            <a class="nav-link text-info" href="register.html">Registrarse</a>
+                        </li>
                     </ul>
-                </div>
-                
-                <!-- Capturas de pantalla -->
-                <h3 class="mb-3">Capturas de pantalla</h3>
-                <div class="row g-3 mb-5">
-                    <div class="col-6 col-md-4">
-                        <img src="../assets/images/game1-screenshot1.png" class="img-fluid rounded shadow" alt="Captura 1">
-                    </div>
-                    <div class="col-6 col-md-4">
-                        <img src="../assets/images/game1-screenshot2.jpg" class="img-fluid rounded shadow" alt="Captura 2">
-                    </div>
-                    <div class="col-6 col-md-4">
-                        <img src="../assets/images/game1.png" class="img-fluid rounded shadow" alt="Captura 3">
+                    <div class="d-none d-lg-flex">
+                        <a href="login.html" class="btn btn-outline-light me-2 btn-custom-outline">Iniciar Sesión</a>
+                        <a href="register.html" class="btn btn-primary btn-custom-solid">Registrarse</a>
                     </div>
                 </div>
-                
-                <!-- Comentarios -->
-                <h3 class="mb-3">Comentarios</h3>
-                <div class="mb-4">
-                    <div class="card mb-3">
-                        <div class="card-body">
-                            <div class="d-flex">
-                                <img src="https://via.placeholder.com/50" class="rounded-circle me-3" alt="Usuario">
-                                <div>
-                                    <h5 class="card-title mb-1">Usuario 1</h5>
-                                    <div class="text-warning mb-2">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="far fa-star"></i>
+            </div>
+        </div>
+    </nav>
+    
+    <main class="py-5 mt-5 bg-dark"> <!-- Añadir mt-5 para espacio de la navbar fija, y bg-dark para el fondo -->
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <h1 id="game-title" class="fw-bold mb-4 text-white">Título del Juego</h1>
+                    
+                    <!-- Video del juego -->
+                    <div class="ratio ratio-16x9 mb-4 rounded shadow-lg overflow-hidden">
+                        <!-- Asegúrate de que la ruta del poster y el video sean correctas -->
+                        <video controls poster="assets/images/game1.png">
+                            <source src="assets/videos/trailer1.mp4" type="video/mp4">
+                            Tu navegador no soporta el elemento de video.
+                        </video>
+                    </div>
+                    
+                    <!-- Descripción del juego -->
+                    <div class="mb-5">
+                        <h3 class="mb-3 text-white">Sobre el juego</h3>
+                        <p id="game-description" class="text-muted-light">Descripción detallada del juego. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in dui mauris. Vivamus hendrerit arcu sed erat molestie vehicula. Sed auctor neque eu tellus rhoncus ut eleifend nibh porttitor.</p>
+                        
+                        <h4 class="mt-4 text-white">Características</h4>
+                        <ul id="game-features" class="list-unstyled text-muted-light">
+                            <li><i class="fas fa-check-circle text-red-primary me-2"></i>Modo historia emocionante</li>
+                            <li><i class="fas fa-check-circle text-red-primary me-2"></i>Gráficos pixel art de alta calidad</li>
+                            <li><i class="fas fa-check-circle text-red-primary me-2"></i>Banda sonora original</li>
+                            <li><i class="fas fa-check-circle text-red-primary me-2"></i>Multiplayer local</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Capturas de pantalla -->
+                    <h3 class="mb-3 text-white">Capturas de pantalla</h3>
+                    <div class="row g-3 mb-5">
+                        <div class="col-6 col-md-4">
+                            <!-- Asegúrate de que la ruta de la imagen sea correcta -->
+                            <img src="assets/images/game1-screenshot1.png" class="img-fluid rounded shadow-lg border border-secondary-subtle" alt="Captura 1">
+                        </div>
+                        <div class="col-6 col-md-4">
+                            <!-- Asegúrate de que la ruta de la imagen sea correcta -->
+                            <img src="assets/images/game1-screenshot2.jpg" class="img-fluid rounded shadow-lg border border-secondary-subtle" alt="Captura 2">
+                        </div>
+                    </div>
+                    
+                    <!-- Comentarios -->
+                    <h3 class="mb-3 text-white">Comentarios</h3>
+                    <div class="mb-4">
+                        <div class="card mb-3 bg-dark-alt border-secondary-subtle shadow-sm">
+                            <div class="card-body">
+                                <div class="d-flex">
+                                    <!-- Placeholder de imagen de usuario -->
+                                    <img src="https://placehold.co/50x50/333333/FFFFFF?text=User" class="rounded-circle me-3 border border-secondary-subtle" alt="Usuario">
+                                    <div>
+                                        <h5 class="card-title mb-1 text-white">Usuario 1</h5>
+                                        <div class="text-warning mb-2 rating-display">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="far fa-star"></i>
+                                        </div>
+                                        <p class="card-text text-muted-light">¡Increíble juego! Lo he disfrutado mucho.</p>
+                                        <small class="text-muted-light">Publicado hace 2 días</small>
                                     </div>
-                                    <p class="card-text">¡Increíble juego! Lo he disfrutado mucho.</p>
-                                    <small class="text-muted">Publicado hace 2 días</small>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    
-                    <form class="mb-4">
-                        <div class="mb-3">
-                            <label for="comment" class="form-label">Deja tu comentario</label>
-                            <textarea class="form-control" id="comment" rows="3"></textarea>
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Calificación</label>
-                            <div class="rating">
-                                <i class="far fa-star" data-rating="1"></i>
-                                <i class="far fa-star" data-rating="2"></i>
-                                <i class="far fa-star" data-rating="3"></i>
-                                <i class="far fa-star" data-rating="4"></i>
-                                <i class="far fa-star" data-rating="5"></i>
+                        
+                        <form class="mb-4">
+                            <div class="mb-3">
+                                <label for="comment" class="form-label text-white">Deja tu comentario</label>
+                                <textarea class="form-control bg-dark-alt border-secondary-subtle text-white" id="comment" rows="3" placeholder="Escribe tu comentario aquí..."></textarea>
                             </div>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Enviar comentario</button>
-                    </form>
+                            <div class="mb-3">
+                                <label class="form-label text-white">Calificación</label>
+                                <div class="rating">
+                                    <i class="far fa-star" data-rating="1"></i>
+                                    <i class="far fa-star" data-rating="2"></i>
+                                    <i class="far fa-star" data-rating="3"></i>
+                                    <i class="far fa-star" data-rating="4"></i>
+                                    <i class="far fa-star" data-rating="5"></i>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-red-primary">Enviar comentario</button>
+                        </form>
+                    </div>
                 </div>
-            </div>
-            
-            <div class="col-lg-4">
-                <div class="card shadow-sm sticky-top" style="top: 80px;">
-                    <img src="../assets/images/game1.png" class="card-img-top" alt="Portada del juego">
-                    <div class="card-body">
-                        <div class="d-flex justify-content-between align-items-center mb-3">
-                            <span class="badge bg-primary">Disponible ahora</span>
-                            <span class="text-muted">$19.99</span>
-                        </div>
-                        
-                        <div class="d-grid gap-2 mb-3">
-                            <a href="#" class="btn btn-primary btn-lg">Comprar ahora</a>
-                            <a href="#" class="btn btn-outline-primary">Descargar demo</a>
-                        </div>
-                        
-                        <div class="mb-3">
-                            <h5 class="mb-2">Información</h5>
-                            <ul class="list-unstyled">
-                                <li class="mb-1"><strong>Género:</strong> <span id="game-genre">Aventura</span></li>
-                                <li class="mb-1"><strong>Plataforma:</strong> <span id="game-platform">PC, Mac</span></li>
-                                <li class="mb-1"><strong>Fecha de lanzamiento:</strong> <span id="game-release">15/03/2023</span></li>
-                                <li class="mb-1"><strong>Desarrollador:</strong> <span id="game-developer">Indie Games Studio</span></li>
-                            </ul>
-                        </div>
-                        
-                        <div>
-                            <h5 class="mb-2">Compartir</h5>
-                            <div class="social-share">
-                                <a href="#" class="btn btn-sm btn-outline-dark me-2"><i class="fab fa-twitter"></i></a>
-                                <a href="#" class="btn btn-sm btn-outline-dark me-2"><i class="fab fa-facebook"></i></a>
-                                <a href="#" class="btn btn-sm btn-outline-dark"><i class="fab fa-discord"></i></a>
+                
+                <div class="col-lg-4">
+                    <div class="card shadow-lg sticky-top bg-dark-alt border-secondary-subtle" style="top: 80px;">
+                        <!-- Asegúrate de que la ruta de la imagen sea correcta -->
+                        <img src="assets/images/game1.png" class="card-img-top" alt="Portada del juego">
+                        <div class="card-body">
+                            <div class="d-grid gap-2 mb-3">
+                                <a href="#" class="btn btn-red-primary">Descargar demo</a>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <h5 class="mb-2 text-white">Información</h5>
+                                <ul class="list-unstyled text-muted-light">
+                                    <li class="mb-1"><strong>Género:</strong> <span id="game-genre">Aventura</span></li>
+                                    <li class="mb-1"><strong>Plataforma:</strong> <span id="game-platform">PC, Mac</span></li>
+                                    <li class="mb-1"><strong>Fecha de lanzamiento:</strong> <span id="game-release">15/03/2023</span></li>
+                                    <li class="mb-1"><strong>Desarrollador:</strong> <span id="game-developer">Long Band Games</span></li>
+                                </ul>
+                            </div>
+                            
+                            <div>
+                                <h5 class="mb-2 text-white">Compartir</h5>
+                                <div class="social-share">
+                                    <a href="#" class="btn btn-sm btn-outline-dark-custom me-2"><i class="fab fa-twitter"></i></a>
+                                    <a href="#" class="btn btn-sm btn-outline-dark-custom me-2"><i class="fab fa-facebook"></i></a>
+                                    <a href="#" class="btn btn-sm btn-outline-dark-custom"><i class="fab fa-discord"></i></a>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -133,10 +218,61 @@
         </div>
     </main>
     
-    <!-- Footer (igual que en index.html) -->
+    <!-- Footer (Copia y pega el Footer de tu index.html aquí) -->
+    <footer class="bg-black text-white-50 py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <a href="index.html" class="d-flex align-items-center mb-3 text-white text-decoration-none">
+                        <img src="assets/images/logo.png" alt="Long Band Games Logo" class="logo-footer me-2">
+                        <span class="fw-bold fs-4 text-uppercase">Long Band Games</span>
+                    </a>
+                    <p class="small">Creando experiencias de juego únicas y memorables desde 2025.</p>
+                    <div class="social-icons mt-3">
+                        <a href="#" class="text-white-50 me-3 hover-red"><i class="fab fa-discord fa-lg"></i></a>
+                        <a href="#" class="text-white-50 me-3 hover-red"><i class="fab fa-instagram fa-lg"></i></a>
+                        <a href="#" class="text-white-50 me-3 hover-red"><i class="fab fa-twitter fa-lg"></i></a>
+                        <a href="#" class="text-white-50 me-3 hover-red"><i class="fab fa-youtube fa-lg"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4 mb-lg-0">
+                    <h5 class="text-white fw-bold mb-3">Navegación</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="index.html" class="text-white-50 text-decoration-none hover-red">Inicio</a></li>
+                        <li class="mb-2"><a href="games.html" class="text-white-50 text-decoration-none hover-red">Juegos</a></li>
+                        <li class="mb-2"><a href="missions.html" class="text-white-50 text-decoration-none hover-red">Misiones</a></li>
+                        <li class="mb-2"><a href="contact.html" class="text-white-50 text-decoration-none hover-red">Contacto</a></li>
+                        <li class="mb-2"><a href="login.html" class="text-white-50 text-decoration-none hover-red">Iniciar Sesión</a></li>
+                        <li class="mb-2"><a href="register.html" class="text-white-50 text-decoration-none hover-red">Registrarse</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-4 mb-4 mb-lg-0">
+                    <h5 class="text-white fw-bold mb-3">Legal y Soporte</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none hover-red">Política de Privacidad</a></li>
+                        <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none hover-red">Términos de Servicio</a></li>
+                        <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none hover-red">Política de Cookies</a></li>
+                        <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none hover-red">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-4">
+                    <h5 class="text-white fw-bold mb-3">Contáctanos Directamente</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><i class="fas fa-envelope me-2 text-red-primary"></i> info@longbandgames.com</li>
+                        <li class="mb-2"><i class="fas fa-phone me-2 text-red-primary"></i> +1 (555) 123-4567</li>
+                        <li class="mb-2"><i class="fas fa-map-marker-alt me-2 text-red-primary"></i> Sarandí, Buenos Aires, Argentina</li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="border-secondary-subtle my-4">
+            <div class="text-center small text-white-50">
+                &copy; 2025 Long Band Games. Todos los derechos reservados.
+            </div>
+        </div>
+    </footer>
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="../js/main.js"></script>
+    <script src="js/main.js"></script>
     <script>
         // Lógica para cargar los datos del juego según el parámetro en la URL
         document.addEventListener('DOMContentLoaded', function() {
@@ -146,14 +282,17 @@
             // Aquí iría la lógica para cargar los datos del juego correspondiente
             // Por ahora usaremos datos estáticos como ejemplo
             if (gameId === '1') {
-                document.getElementById('game-title').textContent = 'Aventura Épica';
-                document.getElementById('game-description').textContent = 'Embárcate en una aventura épica a través de mundos fantásticos llenos de misterios y desafíos. Enfréntate a poderosos enemigos, resuelve puzzles ingeniosos y descubre secretos ocultos en este juego de acción y aventura.';
+                document.getElementById('game-title').textContent = 'Robo Beast';
+                document.getElementById('game-description').textContent = 'Cuando la soledad y el abandono rodea, tu compañia son los animales robots. Encuentralos y reparalos resolviendo puzzles y viajando en el tiempo.';
+                document.getElementById('game-genre').textContent = 'Aventura, Puzzle'; // Actualizar género
+                document.getElementById('game-platform').textContent = 'Windows, Mac'; // Actualizar plataforma
+                document.getElementById('game-release').textContent = '15/12/2025'; // Actualizar fecha
+                document.getElementById('game-developer').textContent = 'Long Band Games'; // Actualizar desarrollador
                 
                 const features = [
                     'Historia emocionante con múltiples finales',
-                    'Combate dinámico con sistema de habilidades',
-                    'Mundo abierto con más de 50 horas de contenido',
-                    'Gráficos estilo pixel art en alta definición',
+                    'Mecánica diferente sobre viajar en el tiempo',
+                    'Gráficos estilo comics',
                     'Banda sonora original con más de 30 pistas'
                 ];
                 
@@ -161,12 +300,51 @@
                 featuresList.innerHTML = '';
                 features.forEach(feature => {
                     const li = document.createElement('li');
-                    li.textContent = feature;
+                    li.innerHTML = `<i class="fas fa-check-circle text-red-primary me-2"></i>${feature}`; // Añadir icono
                     featuresList.appendChild(li);
                 });
+
+                // Actualizar imágenes y video para Juego 1
+                document.querySelector('.ratio video').poster = 'assets/images/game1.png';
+                document.querySelector('.ratio video source').src = 'assets/videos/trailer1.mp4'; // Asumiendo trailer1.mp4 para Aventura Épica
+                document.querySelector('.col-lg-4 .card-img-top').src = 'assets/images/game1.png';
+                document.querySelectorAll('.row.g-3.mb-5 img')[0].src = 'assets/images/game1-screenshot1.png';
+                document.querySelectorAll('.row.g-3.mb-5 img')[1].src = 'assets/images/game1-screenshot2.png';
+                
             } else if (gameId === '2') {
-                document.getElementById('game-title').textContent = 'Carrera Extrema';
-                // ... otros datos para el juego 2
+                document.getElementById('game-title').textContent = 'Visions of Hunting Shadow';
+                document.getElementById('game-description').textContent = 'Enfrentate a la propia oscuridad mientras revelas misterios, aunque algunos es mejor nunca descubrirlos...';
+                document.getElementById('game-genre').textContent = 'Terror, Pixel art, 2D';
+                document.getElementById('game-platform').textContent = 'Windows, Mac, Linux';
+                document.getElementById('game-release').textContent = '20/07/2024';
+                document.getElementById('game-developer').textContent = 'Long Band Games';
+
+                const features = [
+                    'Narrativa atrapante',
+                    'Tensión en todo momento',
+                    'Banda sonora excelente'
+                ];
+                
+                const featuresList = document.getElementById('game-features');
+                featuresList.innerHTML = '';
+                features.forEach(feature => {
+                    const li = document.createElement('li');
+                    li.innerHTML = `<i class="fas fa-check-circle text-red-primary me-2"></i>${feature}`;
+                    featuresList.appendChild(li);
+                });
+
+                // Actualizar imágenes y video para Juego 2
+                document.querySelector('.ratio video').poster = 'assets/images/game2.png';
+                document.querySelector('.ratio video source').src = 'assets/videos/trailer2.mp4';
+                document.querySelector('.col-lg-4 .card-img-top').src = 'assets/images/game2.png';
+                document.querySelectorAll('.row.g-3.mb-5 img')[0].src = 'assets/images/game2-screenshot1.png';
+                document.querySelectorAll('.row.g-3.mb-5 img')[1].src = 'assets/images/game2-screenshot2.png';
+
+                // Actualizar precio y disponibilidad para Juego 2
+                document.querySelector('.col-lg-4 .card-body .badge').textContent = 'Disponible ahora';
+                document.querySelector('.col-lg-4 .card-body .badge').classList.remove('bg-primary');
+                document.querySelector('.col-lg-4 .card-body .badge').classList.add('bg-success');
+                document.querySelector('.col-lg-4 .card-body .text-red-primary').textContent = '$5.99';
             }
             
             // Sistema de valoración con estrellas

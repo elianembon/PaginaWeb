@@ -3,76 +3,204 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contacto | Indie Games Studio</title>
+    <title>Contacto | Long Band Games</title>
+    <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome para íconos -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="../css/style.css">
+    <!-- Google Fonts (para tipografía profesional) -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto:wght@400;700&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <!-- CSS personalizado -->
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        /* Estilos específicos para la página de Contacto */
+        .list-group-item {
+            background-color: var(--bs-dark-alt); /* Fondo oscuro para los ítems de lista */
+            border: 1px solid var(--bs-secondary-subtle); /* Borde sutil */
+            color: #e0e0e0; /* Color de texto por defecto */
+            transition: all 0.3s ease;
+        }
+        .list-group-item:hover,
+        .list-group-item.active {
+            background-color: var(--bs-red-section-alt); /* Fondo rojo oscuro en hover/activo */
+            border-color: var(--bs-red-primary); /* Borde rojo en hover/activo */
+            color: var(--bs-red-primary); /* Color de texto rojo en hover/activo */
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+        .list-group-item h5 {
+            color: #f8f8f8; /* Títulos dentro del list-group-item */
+        }
+        .list-group-item p {
+            color: var(--bs-muted-light); /* Párrafos dentro del list-group-item */
+        }
+
+        /* Estilos para el modal de contacto */
+        .modal-content {
+            background-color: var(--bs-dark-section); /* Fondo oscuro para el modal */
+            color: #e0e0e0;
+            border: 1px solid var(--bs-secondary-subtle);
+            border-radius: 0.75rem;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.5);
+        }
+        .modal-header {
+            border-bottom: 1px solid var(--bs-secondary-subtle);
+        }
+        .modal-title {
+            color: #f8f8f8;
+        }
+        .modal-body {
+            padding: 2rem;
+        }
+        .btn-close {
+            filter: invert(1) grayscale(100%) brightness(200%); /* Hace el botón de cerrar blanco */
+        }
+        .form-label {
+            color: #e0e0e0;
+        }
+        .form-control {
+            background-color: #222;
+            border: 1px solid #444;
+            color: #e0e0e0;
+        }
+        .form-control:focus {
+            background-color: #222;
+            border-color: var(--bs-red-primary);
+            box-shadow: 0 0 0 0.25rem rgba(var(--bs-red-primary-rgb), .25);
+        }
+        .invalid-feedback {
+            color: var(--bs-red-primary); /* Color para mensajes de error de validación */
+        }
+    </style>
 </head>
-<body>
-    <!-- Navbar (igual que en index.html) -->
-    
-    <main class="container my-5">
-        <div class="row">
-            <div class="col-lg-6">
-                <h1 class="fw-bold mb-4">Contáctanos</h1>
-                <p class="lead mb-4">¿Tienes preguntas, sugerencias o quieres unirte a nuestro equipo? Escríbenos.</p>
-                
-                <div class="mb-5">
-                    <h3 class="mb-3">Opciones de contacto</h3>
-                    <div class="list-group">
-                        <a href="#" class="list-group-item list-group-item-action" data-bs-toggle="modal" data-bs-target="#contactModal" data-type="general">
-                            <div class="d-flex w-100 justify-content-between">
-                                <h5 class="mb-1">Contacto general</h5>
-                            </div>
-                            <p class="mb-1">Preguntas, sugerencias o comentarios sobre nuestros juegos.</p>
-                        </a>
-                        <a href="#" class="list-group-item list-group-item-action" data-bs-toggle="modal" data-bs-target="#contactModal" data-type="bug">
-                            <div class="d-flex w-100 justify-content-between">
-                                <h5 class="mb-1">Reportar un bug</h5>
-                            </div>
-                            <p class="mb-1">Encuentras un problema en alguno de nuestros juegos? Repórtalo aquí.</p>
-                        </a>
-                        <a href="#" class="list-group-item list-group-item-action" data-bs-toggle="modal" data-bs-target="#contactModal" data-type="job">
-                            <div class="d-flex w-100 justify-content-between">
-                                <h5 class="mb-1">Trabaja con nosotros</h5>
-                            </div>
-                            <p class="mb-1">¿Quieres unirte a nuestro equipo? Envíanos tu currículum.</p>
-                        </a>
-                    </div>
+<body class="bg-dark-alt text-white">
+    <!-- Navbar (Copia y pega la Navbar de tu index.html aquí) -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <img src="assets/images/logo.png" alt="Long Band Games Logo" class="logo-navbar me-2">
+                <span class="fw-bold fs-4 text-uppercase d-none d-sm-block">Long Band Games</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menú</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                 </div>
-                
-                <div>
-                    <h3 class="mb-3">Información de contacto</h3>
-                    <ul class="list-unstyled">
-                        <li class="mb-3"><i class="fas fa-envelope me-2"></i> contacto@indiegames.com</li>
-                        <li class="mb-3"><i class="fas fa-phone me-2"></i> +123 456 7890</li>
-                        <li class="mb-3"><i class="fas fa-map-marker-alt me-2"></i> Calle Falsa 123, Ciudad, País</li>
+                <div class="offcanvas-body">
+                    <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Inicio</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Juegos
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-dark">
+                                <li><a class="dropdown-item" href="games.html#featured">Juegos Destacados</a></li>
+                                <li><a class="dropdown-item" href="games.html#all-games">Lista Cronológica</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="games.html#upcoming">Próximos Lanzamientos</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="missions.html">Misiones</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle active" aria-current="page" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Contacto
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-dark">
+                                <li><a class="dropdown-item" href="contact.html?type=job">Currículums</a></li>
+                                <li><a class="dropdown-item" href="contact.html?type=bug">Reportar Bugs</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="contact.html?type=general">General</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item d-lg-none">
+                            <a class="nav-link text-primary" href="login.html">Iniciar Sesión</a>
+                        </li>
+                        <li class="nav-item d-lg-none">
+                            <a class="nav-link text-info" href="register.html">Registrarse</a>
+                        </li>
                     </ul>
-                    
-                    <h4 class="mt-4 mb-3">Redes sociales</h4>
-                    <div class="social-icons">
-                        <a href="#" class="btn btn-outline-dark me-2"><i class="fab fa-discord me-1"></i> Discord</a>
-                        <a href="#" class="btn btn-outline-dark me-2"><i class="fab fa-twitter me-1"></i> Twitter</a>
-                        <a href="#" class="btn btn-outline-dark"><i class="fab fa-instagram me-1"></i> Instagram</a>
+                    <div class="d-none d-lg-flex">
+                        <a href="login.html" class="btn btn-outline-light me-2 btn-custom-outline">Iniciar Sesión</a>
+                        <a href="register.html" class="btn btn-primary btn-custom-solid">Registrarse</a>
                     </div>
                 </div>
             </div>
-            
-            <div class="col-lg-6">
-                <div class="card shadow-sm">
-                    <div class="card-body">
-                        <h3 class="card-title mb-4">Mapa de ubicación</h3>
-                        <div class="ratio ratio-16x9 mb-4">
-                            <!-- Mapa de Google Maps (simulado) -->
-                            <img src="https://maps.googleapis.com/maps/api/staticmap?center=Calle+Falsa+123,Ciudad,País&zoom=15&size=600x300&maptype=roadmap&markers=color:red%7CCalle+Falsa+123,Ciudad,País&key=YOUR_API_KEY" alt="Mapa de ubicación" class="img-fluid rounded">
+        </div>
+    </nav>
+    
+    <main class="py-5 mt-5 bg-dark"> <!-- Añadir mt-5 para espacio de la navbar fija, y bg-dark para el fondo -->
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <h1 class="fw-bold mb-4 text-white">Contáctanos</h1>
+                    <p class="lead mb-4 text-muted-light">¿Tienes preguntas, sugerencias o quieres unirte a nuestro equipo? Escríbenos.</p>
+                    
+                    <div class="mb-5">
+                        <h3 class="mb-3 text-white">Opciones de contacto</h3>
+                        <div class="list-group">
+                            <a href="#" class="list-group-item list-group-item-action" data-bs-toggle="modal" data-bs-target="#contactModal" data-type="general">
+                                <div class="d-flex w-100 justify-content-between">
+                                    <h5 class="mb-1">Contacto general</h5>
+                                </div>
+                                <p class="mb-1">Preguntas, sugerencias o comentarios sobre nuestros juegos.</p>
+                            </a>
+                            <a href="#" class="list-group-item list-group-item-action" data-bs-toggle="modal" data-bs-target="#contactModal" data-type="bug">
+                                <div class="d-flex w-100 justify-content-between">
+                                    <h5 class="mb-1">Reportar un bug</h5>
+                                </div>
+                                <p class="mb-1">¿Encuentras un problema en alguno de nuestros juegos? Repórtalo aquí.</p>
+                            </a>
+                            <a href="#" class="list-group-item list-group-item-action" data-bs-toggle="modal" data-bs-target="#contactModal" data-type="job">
+                                <div class="d-flex w-100 justify-content-between">
+                                    <h5 class="mb-1">Trabaja con nosotros</h5>
+                                </div>
+                                <p class="mb-1">¿Quieres unirte a nuestro equipo? Envíanos tu currículum.</p>
+                            </a>
                         </div>
-                        
-                        <h3 class="card-title mb-4">Horario de atención</h3>
-                        <ul class="list-unstyled">
-                            <li class="mb-2"><strong>Lunes a Viernes:</strong> 9:00 - 18:00</li>
-                            <li class="mb-2"><strong>Sábados:</strong> 10:00 - 14:00</li>
-                            <li><strong>Domingos:</strong> Cerrado</li>
+                    </div>
+                    
+                    <div>
+                        <h3 class="mb-3 text-white">Información de contacto</h3>
+                        <ul class="list-unstyled text-muted-light">
+                            <li class="mb-3"><i class="fas fa-envelope me-2 text-red-primary"></i> info@longbandgames.com</li>
+                            <li class="mb-3"><i class="fas fa-phone me-2 text-red-primary"></i> +1 (555) 123-4567</li>
+                            <li class="mb-3"><i class="fas fa-map-marker-alt me-2 text-red-primary"></i> Sarandí, Buenos Aires, Argentina</li>
                         </ul>
+                        
+                        <h4 class="mt-4 mb-3 text-white">Redes sociales</h4>
+                        <div class="social-icons">
+                            <a href="#" class="btn btn-outline-dark-custom me-2"><i class="fab fa-discord me-1"></i> Discord</a>
+                            <a href="#" class="btn btn-outline-dark-custom me-2"><i class="fab fa-twitter me-1"></i> Twitter</a>
+                            <a href="#" class="btn btn-outline-dark-custom"><i class="fab fa-instagram me-1"></i> Instagram</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6">
+                    <div class="card shadow-lg bg-dark-alt border-secondary-subtle">
+                        <div class="card-body p-4">
+                            <h3 class="card-title mb-4 text-white">Mapa de ubicación</h3>
+                            <div class="ratio ratio-16x9 mb-4 rounded shadow-sm overflow-hidden">
+                                <!-- Mapa de Google Maps (simulado) -->
+                                <!-- NOTA: Reemplaza YOUR_API_KEY con tu clave de API real de Google Maps para que funcione -->
+                                <img src="https://maps.googleapis.com/maps/api/staticmap?center=Sarandi,Buenos+Aires,Argentina&zoom=15&size=600x300&maptype=roadmap&markers=color:red%7CSarandi,Buenos+Aires,Argentina&key=YOUR_API_KEY" alt="Mapa de ubicación" class="img-fluid rounded">
+                            </div>
+                            
+                            <h3 class="card-title mb-4 text-white">Horario de atención</h3>
+                            <ul class="list-unstyled text-muted-light">
+                                <li class="mb-2"><strong>Lunes a Viernes:</strong> 9:00 - 18:00</li>
+                                <li class="mb-2"><strong>Sábados:</strong> 10:00 - 14:00</li>
+                                <li><strong>Domingos:</strong> Cerrado</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -81,7 +209,7 @@
     
     <!-- Modal de contacto -->
     <div class="modal fade" id="contactModal" tabindex="-1" aria-labelledby="contactModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
+        <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="contactModalLabel">Formulario de contacto</h5>
@@ -118,6 +246,9 @@
                         <div class="mb-3" id="cvField" style="display: none;">
                             <label for="cv" class="form-label">Currículum (PDF)</label>
                             <input type="file" class="form-control" id="cv" accept=".pdf">
+                            <div class="invalid-feedback">
+                                Por favor adjunta un archivo PDF.
+                            </div>
                         </div>
                         
                         <div class="mb-3">
@@ -129,7 +260,7 @@
                         </div>
                         
                         <div class="d-grid">
-                            <button type="submit" class="btn btn-primary">Enviar mensaje</button>
+                            <button type="submit" class="btn btn-red-primary">Enviar mensaje</button>
                         </div>
                     </form>
                 </div>
@@ -137,18 +268,83 @@
         </div>
     </div>
     
-    <!-- Footer (igual que en index.html) -->
+    <!-- Footer (Copia y pega el Footer de tu index.html aquí) -->
+    <footer class="bg-black text-white-50 py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <a href="index.html" class="d-flex align-items-center mb-3 text-white text-decoration-none">
+                        <img src="assets/images/logo.png" alt="Long Band Games Logo" class="logo-footer me-2">
+                        <span class="fw-bold fs-4 text-uppercase">Long Band Games</span>
+                    </a>
+                    <p class="small">Creando experiencias de juego únicas y memorables desde 2025.</p>
+                    <div class="social-icons mt-3">
+                        <a href="#" class="text-white-50 me-3 hover-red"><i class="fab fa-discord fa-lg"></i></a>
+                        <a href="#" class="text-white-50 me-3 hover-red"><i class="fab fa-instagram fa-lg"></i></a>
+                        <a href="#" class="text-white-50 me-3 hover-red"><i class="fab fa-twitter fa-lg"></i></a>
+                        <a href="#" class="text-white-50 me-3 hover-red"><i class="fab fa-youtube fa-lg"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4 mb-lg-0">
+                    <h5 class="text-white fw-bold mb-3">Navegación</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="index.html" class="text-white-50 text-decoration-none hover-red">Inicio</a></li>
+                        <li class="mb-2"><a href="games.html" class="text-white-50 text-decoration-none hover-red">Juegos</a></li>
+                        <li class="mb-2"><a href="missions.html" class="text-white-50 text-decoration-none hover-red">Misiones</a></li>
+                        <li class="mb-2"><a href="contact.html" class="text-white-50 text-decoration-none hover-red">Contacto</a></li>
+                        <li class="mb-2"><a href="login.html" class="text-white-50 text-decoration-none hover-red">Iniciar Sesión</a></li>
+                        <li class="mb-2"><a href="register.html" class="text-white-50 text-decoration-none hover-red">Registrarse</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-4 mb-4 mb-lg-0">
+                    <h5 class="text-white fw-bold mb-3">Legal y Soporte</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none hover-red">Política de Privacidad</a></li>
+                        <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none hover-red">Términos de Servicio</a></li>
+                        <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none hover-red">Política de Cookies</a></li>
+                        <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none hover-red">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-4">
+                    <h5 class="text-white fw-bold mb-3">Contáctanos Directamente</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><i class="fas fa-envelope me-2 text-red-primary"></i> info@longbandgames.com</li>
+                        <li class="mb-2"><i class="fas fa-phone me-2 text-red-primary"></i> +1 (555) 123-4567</li>
+                        <li class="mb-2"><i class="fas fa-map-marker-alt me-2 text-red-primary"></i> Sarandí, Buenos Aires, Argentina</li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="border-secondary-subtle my-4">
+            <div class="text-center small text-white-50">
+                &copy; 2025 Long Band Games. Todos los derechos reservados.
+            </div>
+        </div>
+    </footer>
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="../js/main.js"></script>
+    <script src="js/main.js"></script>
     <script>
         // Configurar el modal según el tipo de contacto
         document.addEventListener('DOMContentLoaded', function() {
             const contactModal = document.getElementById('contactModal');
             
+            // Obtener el tipo de contacto de la URL al cargar la página
+            const urlParams = new URLSearchParams(window.location.search);
+            const initialContactType = urlParams.get('type');
+
+            if (initialContactType) {
+                // Simular el clic en el botón para activar el modal con el tipo correcto
+                const targetButton = document.querySelector(`[data-type="${initialContactType}"]`);
+                if (targetButton) {
+                    const modal = new bootstrap.Modal(contactModal);
+                    modal.show(targetButton);
+                }
+            }
+
             contactModal.addEventListener('show.bs.modal', function(event) {
-                const button = event.relatedTarget;
-                const contactType = button.getAttribute('data-type');
+                const button = event.relatedTarget || document.querySelector(`[data-type="${initialContactType}"]`); // Usar el botón que activó el modal o el de la URL
+                const contactType = button ? button.getAttribute('data-type') : 'general'; // Default a 'general' si no hay botón
+                
                 const modalTitle = contactModal.querySelector('.modal-title');
                 const contactTypeField = contactModal.querySelector('#contactType');
                 const subjectField = contactModal.querySelector('#subjectField');
@@ -156,21 +352,32 @@
                 
                 contactTypeField.value = contactType;
                 
+                // Resetear la validación y ocultar/mostrar campos
+                subjectField.style.display = 'none';
+                cvField.style.display = 'none';
+                contactModal.querySelector('form').classList.remove('was-validated');
+
+
                 switch(contactType) {
                     case 'general':
                         modalTitle.textContent = 'Contacto general';
                         subjectField.style.display = 'block';
-                        cvField.style.display = 'none';
+                        // Asegurarse de que el campo de asunto sea requerido para contacto general
+                        contactModal.querySelector('#subject').setAttribute('required', 'required');
+                        contactModal.querySelector('#cv').removeAttribute('required');
                         break;
                     case 'bug':
                         modalTitle.textContent = 'Reportar un bug';
                         subjectField.style.display = 'block';
-                        cvField.style.display = 'none';
+                        contactModal.querySelector('#subject').setAttribute('required', 'required');
+                        contactModal.querySelector('#cv').removeAttribute('required');
                         break;
                     case 'job':
                         modalTitle.textContent = 'Trabaja con nosotros';
-                        subjectField.style.display = 'none';
                         cvField.style.display = 'block';
+                        // Asegurarse de que el campo de CV sea requerido para trabajo
+                        contactModal.querySelector('#cv').setAttribute('required', 'required');
+                        contactModal.querySelector('#subject').removeAttribute('required');
                         break;
                 }
             });
@@ -180,7 +387,20 @@
                 const form = contactModal.querySelector('form');
                 form.classList.remove('was-validated');
                 form.reset();
+                // Asegurarse de resetear los atributos 'required' al estado inicial o por defecto
+                contactModal.querySelector('#subject').setAttribute('required', 'required');
+                contactModal.querySelector('#cv').removeAttribute('required');
             });
+
+            // Bootstrap 5 form validation
+            const form = contactModal.querySelector('form');
+            form.addEventListener('submit', function(event) {
+                if (!form.checkValidity()) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                }
+                form.classList.add('was-validated');
+            }, false);
         });
     </script>
 </body>
