@@ -87,16 +87,16 @@ h1, h2, h3, h4, h5, h6 {
     box-shadow: 0 5px 15px rgba(0,0,0,0.3);
 }
 
-/* Navbar */
 .navbar {
-    /* Aquí se define la imagen de fondo para la navbar */
     background-image: var(--bs-navbar-bg-image);
-    background-size: cover; /* Cubre toda el área de la navbar */
-    background-position: center; /* Centra la imagen */
-    background-repeat: no-repeat; /* Evita que la imagen se repita */
-    background-color: var(--bs-black); /* Color de respaldo si la imagen no carga */
+    background-size: contain; /* La imagen completa se muestra sin recortes */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: var(--bs-black);
+    min-height: 120px; /* Ajusta según necesites */
     border-bottom: 1px solid #222;
 }
+
 
 .navbar::before {
     content: '';
