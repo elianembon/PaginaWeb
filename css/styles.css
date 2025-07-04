@@ -247,6 +247,106 @@ section {
     object-fit: cover; /* Asegura que la imagen cubra el área sin distorsionarse */
 }
 
+/* Estilos específicos para Misiones (desde missions.html) */
+.mission-card {
+    transition: all 0.3s ease;
+    border-left: 4px solid transparent;
+}
+
+.mission-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.mission-card.completed {
+    border-left-color: var(--bs-red-primary);
+    background-color: rgba(var(--bs-red-primary-rgb), 0.08); /* Usa la variable RGB */
+}
+
+.mission-card.in-progress {
+    border-left-color: var(--bs-blue-primary);
+    background-color: rgba(var(--bs-blue-primary-rgb), 0.08); /* Usa la variable RGB */
+}
+
+.reward-badge {
+    background-color: var(--bs-red-primary);
+    color: white;
+}
+
+.progress {
+    height: 10px;
+    background-color: var(--bs-secondary-subtle);
+}
+.progress-bar {
+    background-color: var(--bs-red-primary);
+}
+
+/* Estilos específicos para la página de Juegos (games.html) */
+.game-filter {
+    background-color: var(--bs-dark-alt); /* Fondo oscuro para el filtro */
+    border-radius: 0.75rem; /* Bordes redondeados */
+    padding: 1.5rem;
+    border: 1px solid var(--bs-secondary-subtle); /* Borde sutil */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+/* Ajustes de color para los inputs y labels dentro del filtro */
+.game-filter .form-control {
+    background-color: #222;
+    border: 1px solid #444;
+    color: #e0e0e0;
+}
+.game-filter .form-control:focus {
+    border-color: var(--bs-red-primary);
+    box-shadow: 0 0 0 0.25rem rgba(var(--bs-red-primary-rgb), .25);
+}
+.game-filter .form-label,
+.game-filter .form-check-label {
+    color: var(--bs-muted-light);
+}
+.game-filter .form-check-input:checked {
+    background-color: var(--bs-red-primary);
+    border-color: var(--bs-red-primary);
+}
+.game-filter .form-check-input:focus {
+    box-shadow: 0 0 0 0.25rem rgba(var(--bs-red-primary-rgb), .25);
+}
+
+.badge-genre {
+    background-color: var(--bs-blue-primary); /* Usar azul primario para géneros */
+    color: white;
+}
+
+.badge-platform {
+    background-color: var(--bs-red-primary); /* Usar rojo primario para plataformas */
+    color: white;
+}
+
+/* Estilos para la paginación */
+.pagination .page-item .page-link {
+    background-color: var(--bs-dark-alt);
+    border-color: var(--bs-secondary-subtle);
+    color: var(--bs-muted-light);
+    transition: all 0.3s ease;
+    border-radius: 0.5rem; /* Bordes redondeados para los botones de paginación */
+    margin: 0 0.2rem; /* Espacio entre los botones */
+}
+.pagination .page-item .page-link:hover {
+    background-color: var(--bs-dark-section);
+    color: var(--bs-red-primary);
+    border-color: var(--bs-red-primary);
+}
+.pagination .page-item.active .page-link {
+    background-color: var(--bs-red-primary) !important;
+    border-color: var(--bs-red-primary) !important;
+    color: white !important;
+}
+.pagination .page-item.disabled .page-link {
+    background-color: var(--bs-dark-section) !important;
+    border-color: var(--bs-secondary-subtle) !important;
+    color: rgba(255,255,255,0.3) !important; /* Texto más tenue para deshabilitado */
+}
+
 /* Footer */
 .logo-footer {
     height: 60px; /* Tamaño del logo en el footer */

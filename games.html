@@ -3,234 +3,329 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nuestros Juegos | Indie Games Studio</title>
+    <title>Nuestros Juegos | Long Band Games</title>
+    <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome para íconos -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="../css/style.css">
-    <style>
-        .game-filter {
-            background-color: #f8f9fa;
-            border-radius: 0.5rem;
-            padding: 1.5rem;
-        }
-        
-        .game-card {
-            transition: all 0.3s ease;
-        }
-        
-        .game-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-        }
-        
-        .badge-genre {
-            background-color: #6c5ce7;
-        }
-        
-        .badge-platform {
-            background-color: #00b894;
-        }
-    </style>
+    <!-- Google Fonts (para tipografía profesional) -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto:wght@400;700&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <!-- CSS personalizado -->
+    <link rel="stylesheet" href="css/styles.css">
 </head>
-<body>
-    <!-- Navbar (igual que en index.html) -->
-    
-    <main class="container my-5">
-        <div class="row mb-4">
-            <div class="col">
-                <h1 class="fw-bold">Nuestros Juegos</h1>
-                <p class="lead">Explora nuestras creaciones indie</p>
+<body class="bg-dark-alt text-white">
+    <!-- Navbar (Copia y pega la Navbar de tu index.html aquí) -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <img src="assets/images/logo.png" alt="Long Band Games Logo" class="logo-navbar me-2">
+                <span class="fw-bold fs-4 text-uppercase d-none d-sm-block">Long Band Games</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menú</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Inicio</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle active" aria-current="page" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Juegos
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-dark">
+                                <li><a class="dropdown-item" href="games.html#featured">Juegos Destacados</a></li>
+                                <li><a class="dropdown-item" href="games.html#all-games">Lista Cronológica</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="games.html#upcoming">Próximos Lanzamientos</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="missions.html">Misiones</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Contacto
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-dark">
+                                <li><a class="dropdown-item" href="contact.html?type=job">Currículums</a></li>
+                                <li><a class="dropdown-item" href="contact.html?type=bug">Reportar Bugs</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="contact.html?type=general">General</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item d-lg-none">
+                            <a class="nav-link text-primary" href="login.html">Iniciar Sesión</a>
+                        </li>
+                        <li class="nav-item d-lg-none">
+                            <a class="nav-link text-info" href="register.html">Registrarse</a>
+                        </li>
+                    </ul>
+                    <div class="d-none d-lg-flex">
+                        <a href="login.html" class="btn btn-outline-light me-2 btn-custom-outline">Iniciar Sesión</a>
+                        <a href="register.html" class="btn btn-primary btn-custom-solid">Registrarse</a>
+                    </div>
+                </div>
             </div>
         </div>
-        
-        <div class="row">
-            <!-- Filtros -->
-            <div class="col-lg-3 mb-4 mb-lg-0">
-                <div class="game-filter sticky-top" style="top: 80px;">
-                    <h5 class="mb-3">Filtrar juegos</h5>
-                    
-                    <div class="mb-4">
-                        <label for="search" class="form-label">Buscar</label>
-                        <input type="text" class="form-control" id="search" placeholder="Nombre del juego...">
-                    </div>
-                    
-                    <div class="mb-4">
-                        <label class="form-label">Género</label>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="action" checked>
-                            <label class="form-check-label" for="action">Acción</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="adventure" checked>
-                            <label class="form-check-label" for="adventure">Aventura</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="rpg" checked>
-                            <label class="form-check-label" for="rpg">RPG</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="strategy" checked>
-                            <label class="form-check-label" for="strategy">Estrategia</label>
-                        </div>
-                    </div>
-                    
-                    <div class="mb-4">
-                        <label class="form-label">Plataforma</label>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="pc" checked>
-                            <label class="form-check-label" for="pc">PC</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="mac" checked>
-                            <label class="form-check-label" for="mac">Mac</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="linux" checked>
-                            <label class="form-check-label" for="linux">Linux</label>
-                        </div>
-                    </div>
-                    
-                    <div class="mb-4">
-                        <label class="form-label">Estado</label>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="status" id="all" checked>
-                            <label class="form-check-label" for="all">Todos</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="status" id="available">
-                            <label class="form-check-label" for="available">Disponibles</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="status" id="coming">
-                            <label class="form-check-label" for="coming">Próximamente</label>
-                        </div>
-                    </div>
-                    
-                    <button class="btn btn-primary w-100">Aplicar filtros</button>
+    </nav>
+    
+    <main class="py-5 mt-5 bg-dark"> <!-- Añadir mt-5 para espacio de la navbar fija, y bg-dark para el fondo -->
+        <div class="container">
+            <div class="row mb-4">
+                <div class="col">
+                    <h1 class="fw-bold text-white">Nuestros Juegos</h1>
+                    <p class="lead text-muted-light">Explora nuestras creaciones indie</p>
                 </div>
             </div>
             
-            <!-- Listado de juegos -->
-            <div class="col-lg-9">
-                <div class="row row-cols-1 row-cols-md-2 row-cols-lg-2 row-cols-xl-3 g-4" id="games-container">
-                    <!-- Juego 1 -->
-                    <div class="col">
-                        <div class="card h-100 game-card">
-                            <img src="../assets/images/game1.png" class="card-img-top" alt="Título del Juego 1">
-                            <div class="card-body">
-                                <div class="d-flex justify-content-between align-items-start mb-2">
-                                    <h5 class="card-title mb-0">Aventura Épica</h5>
-                                    <span class="badge bg-success">Disponible</span>
-                                </div>
-                                <p class="card-text text-muted small">Embárcate en una aventura épica a través de mundos fantásticos.</p>
-                                <div class="mb-3">
-                                    <span class="badge badge-genre me-1">Aventura</span>
-                                    <span class="badge badge-genre me-1">RPG</span>
-                                    <span class="badge badge-platform">PC</span>
-                                </div>
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <div class="text-warning">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="far fa-star"></i>
-                                        <small class="text-muted ms-1">(24)</small>
-                                    </div>
-                                    <span class="text-primary">$19.99</span>
-                                </div>
+            <div class="row">
+                <!-- Filtros -->
+                <div class="col-lg-3 mb-4 mb-lg-0">
+                    <div class="game-filter sticky-top bg-dark-alt border-secondary-subtle" style="top: 80px;">
+                        <h5 class="mb-3 text-white">Filtrar juegos</h5>
+                        
+                        <div class="mb-4">
+                            <label for="search" class="form-label text-muted-light">Buscar</label>
+                            <input type="text" class="form-control" id="search" placeholder="Nombre del juego...">
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label class="form-label text-muted-light">Género</label>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="action" checked>
+                                <label class="form-check-label text-muted-light" for="action">Acción</label>
                             </div>
-                            <div class="card-footer bg-white border-0">
-                                <a href="game-detail.html?game=1" class="btn btn-sm btn-primary w-100">Ver detalles</a>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="adventure" checked>
+                                <label class="form-check-label text-muted-light" for="adventure">Aventura</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="rpg" checked>
+                                <label class="form-check-label text-muted-light" for="rpg">RPG</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="strategy" checked>
+                                <label class="form-check-label text-muted-light" for="strategy">Estrategia</label>
                             </div>
                         </div>
-                    </div>
-                    
-                    <!-- Juego 2 -->
-                    <div class="col">
-                        <div class="card h-100 game-card">
-                            <img src="../assets/images/game2.png" class="card-img-top" alt="Título del Juego 2">
-                            <div class="card-body">
-                                <div class="d-flex justify-content-between align-items-start mb-2">
-                                    <h5 class="card-title mb-0">Carrera Extrema</h5>
-                                    <span class="badge bg-success">Disponible</span>
-                                </div>
-                                <p class="card-text text-muted small">Competencias de autos a alta velocidad con físicas realistas.</p>
-                                <div class="mb-3">
-                                    <span class="badge badge-genre me-1">Carreras</span>
-                                    <span class="badge badge-platform me-1">PC</span>
-                                    <span class="badge badge-platform">Mac</span>
-                                </div>
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <div class="text-warning">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star-half-alt"></i>
-                                        <i class="far fa-star"></i>
-                                        <small class="text-muted ms-1">(18)</small>
-                                    </div>
-                                    <span class="text-primary">$14.99</span>
-                                </div>
+                        
+                        <div class="mb-4">
+                            <label class="form-label text-muted-light">Plataforma</label>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="pc" checked>
+                                <label class="form-check-label text-muted-light" for="pc">PC</label>
                             </div>
-                            <div class="card-footer bg-white border-0">
-                                <a href="game-detail.html?game=2" class="btn btn-sm btn-primary w-100">Ver detalles</a>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="mac" checked>
+                                <label class="form-check-label text-muted-light" for="mac">Mac</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="linux" checked>
+                                <label class="form-check-label text-muted-light" for="linux">Linux</label>
                             </div>
                         </div>
-                    </div>
-                    
-                    <!-- Juego 3 (próximamente) -->
-                    <div class="col">
-                        <div class="card h-100 game-card">
-                            <img src="../assets/images/game1.png" class="card-img-top" alt="Título del Juego 3">
-                            <div class="card-body">
-                                <div class="d-flex justify-content-between align-items-start mb-2">
-                                    <h5 class="card-title mb-0">Misterio en la Isla</h5>
-                                    <span class="badge bg-warning text-dark">Próximamente</span>
-                                </div>
-                                <p class="card-text text-muted small">Resuelve el misterio de la isla abandonada en este juego de aventuras.</p>
-                                <div class="mb-3">
-                                    <span class="badge badge-genre me-1">Aventura</span>
-                                    <span class="badge badge-genre me-1">Puzzle</span>
-                                    <span class="badge badge-platform">PC</span>
-                                </div>
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <div class="text-muted">
-                                        <small>Sin calificaciones aún</small>
-                                    </div>
-                                    <span class="text-muted">TBA</span>
-                                </div>
+                        
+                        <div class="mb-4">
+                            <label class="form-label text-muted-light">Estado</label>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="status" id="all" checked>
+                                <label class="form-check-label text-muted-light" for="all">Todos</label>
                             </div>
-                            <div class="card-footer bg-white border-0">
-                                <a href="#" class="btn btn-sm btn-outline-primary w-100">Ver avances</a>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="status" id="available">
+                                <label class="form-check-label text-muted-light" for="available">Disponibles</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="status" id="coming">
+                                <label class="form-check-label text-muted-light" for="coming">Próximamente</label>
                             </div>
                         </div>
+                        
+                        <button class="btn btn-red-primary w-100">Aplicar filtros</button>
                     </div>
-                    
-                    <!-- Más juegos podrían agregarse aquí -->
                 </div>
                 
-                <!-- Paginación -->
-                <nav class="mt-5" aria-label="Paginación de juegos">
-                    <ul class="pagination justify-content-center">
-                        <li class="page-item disabled">
-                            <a class="page-link" href="#" tabindex="-1">Anterior</a>
-                        </li>
-                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                        <li class="page-item">
-                            <a class="page-link" href="#">Siguiente</a>
-                        </li>
-                    </ul>
-                </nav>
+                <!-- Listado de juegos -->
+                <div class="col-lg-9">
+                    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-2 row-cols-xl-3 g-4" id="games-container">
+                        <!-- Juego 1 -->
+                        <div class="col">
+                            <div class="card h-100 game-card bg-dark-alt border-secondary-subtle card-hover-effect">
+                                <!-- Asegúrate de que la ruta de la imagen sea correcta -->
+                                <img src="assets/images/game1.png" class="card-img-top" alt="Título del Juego 1">
+                                <div class="card-body">
+                                    <div class="d-flex justify-content-between align-items-start mb-2">
+                                        <h5 class="card-title mb-0 text-white">Aventura Épica</h5>
+                                        <span class="badge bg-success">Disponible</span>
+                                    </div>
+                                    <p class="card-text text-muted-light small">Embárcate en una aventura épica a través de mundos fantásticos.</p>
+                                    <div class="mb-3">
+                                        <span class="badge badge-genre me-1">Aventura</span>
+                                        <span class="badge badge-genre me-1">RPG</span>
+                                        <span class="badge badge-platform">PC</span>
+                                    </div>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div class="text-warning">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="far fa-star"></i>
+                                            <small class="text-muted-light ms-1">(24)</small>
+                                        </div>
+                                        <span class="text-red-primary">$19.99</span>
+                                    </div>
+                                </div>
+                                <div class="card-footer bg-dark-section border-secondary-subtle">
+                                    <a href="game-detail.html?game=1" class="btn btn-sm btn-red-primary w-100">Ver detalles</a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Juego 2 -->
+                        <div class="col">
+                            <div class="card h-100 game-card bg-dark-alt border-secondary-subtle card-hover-effect">
+                                <!-- Asegúrate de que la ruta de la imagen sea correcta -->
+                                <img src="assets/images/game2.png" class="card-img-top" alt="Título del Juego 2">
+                                <div class="card-body">
+                                    <div class="d-flex justify-content-between align-items-start mb-2">
+                                        <h5 class="card-title mb-0 text-white">Carrera Extrema</h5>
+                                        <span class="badge bg-success">Disponible</span>
+                                    </div>
+                                    <p class="card-text text-muted-light small">Competencias de autos a alta velocidad con físicas realistas.</p>
+                                    <div class="mb-3">
+                                        <span class="badge badge-genre me-1">Carreras</span>
+                                        <span class="badge badge-platform me-1">PC</span>
+                                        <span class="badge badge-platform">Mac</span>
+                                    </div>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div class="text-warning">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star-half-alt"></i>
+                                            <i class="far fa-star"></i>
+                                            <small class="text-muted-light ms-1">(18)</small>
+                                        </div>
+                                        <span class="text-red-primary">$14.99</span>
+                                    </div>
+                                </div>
+                                <div class="card-footer bg-dark-section border-secondary-subtle">
+                                    <a href="game-detail.html?game=2" class="btn btn-sm btn-red-primary w-100">Ver detalles</a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Juego 3 (próximamente) -->
+                        <div class="col">
+                            <div class="card h-100 game-card bg-dark-alt border-secondary-subtle card-hover-effect">
+                                <!-- Asegúrate de que la ruta de la imagen sea correcta -->
+                                <img src="assets/images/game-placeholder-3.jpg" class="card-img-top" alt="Título del Juego 3">
+                                <div class="card-body">
+                                    <div class="d-flex justify-content-between align-items-start mb-2">
+                                        <h5 class="card-title mb-0 text-white">Misterio en la Isla</h5>
+                                        <span class="badge bg-blue-primary">Próximamente</span> <!-- Usar color de tema -->
+                                    </div>
+                                    <p class="card-text text-muted-light small">Resuelve el misterio de la isla abandonada en este juego de aventuras.</p>
+                                    <div class="mb-3">
+                                        <span class="badge badge-genre me-1">Aventura</span>
+                                        <span class="badge badge-genre me-1">Puzzle</span>
+                                        <span class="badge badge-platform">PC</span>
+                                    </div>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div class="text-muted-light">
+                                            <small>Sin calificaciones aún</small>
+                                        </div>
+                                        <span class="text-muted-light">TBA</span>
+                                    </div>
+                                </div>
+                                <div class="card-footer bg-dark-section border-secondary-subtle">
+                                    <a href="game-detail.html?game=3" class="btn btn-sm btn-outline-red-primary w-100">Ver avances</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Paginación -->
+                    <nav class="mt-5" aria-label="Paginación de juegos">
+                        <ul class="pagination justify-content-center">
+                            <li class="page-item disabled">
+                                <a class="page-link bg-dark-alt border-secondary-subtle text-muted-light" href="#" tabindex="-1">Anterior</a>
+                            </li>
+                            <li class="page-item active"><a class="page-link bg-red-primary border-red-primary" href="#">1</a></li>
+                            <li class="page-item"><a class="page-link bg-dark-alt border-secondary-subtle text-white" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link bg-dark-alt border-secondary-subtle text-white" href="#">3</a></li>
+                            <li class="page-item">
+                                <a class="page-link bg-dark-alt border-secondary-subtle text-muted-light" href="#">Siguiente</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
             </div>
         </div>
     </main>
     
-    <!-- Footer (igual que en index.html) -->
+    <!-- Footer (Copia y pega el Footer de tu index.html aquí) -->
+    <footer class="bg-black text-white-50 py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <a href="index.html" class="d-flex align-items-center mb-3 text-white text-decoration-none">
+                        <img src="assets/images/logo.png" alt="Long Band Games Logo" class="logo-footer me-2">
+                        <span class="fw-bold fs-4 text-uppercase">Long Band Games</span>
+                    </a>
+                    <p class="small">Creando experiencias de juego únicas y memorables desde 2025.</p>
+                    <div class="social-icons mt-3">
+                        <a href="#" class="text-white-50 me-3 hover-red"><i class="fab fa-discord fa-lg"></i></a>
+                        <a href="#" class="text-white-50 me-3 hover-red"><i class="fab fa-instagram fa-lg"></i></a>
+                        <a href="#" class="text-white-50 me-3 hover-red"><i class="fab fa-twitter fa-lg"></i></a>
+                        <a href="#" class="text-white-50 me-3 hover-red"><i class="fab fa-youtube fa-lg"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4 mb-lg-0">
+                    <h5 class="text-white fw-bold mb-3">Navegación</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="index.html" class="text-white-50 text-decoration-none hover-red">Inicio</a></li>
+                        <li class="mb-2"><a href="games.html" class="text-white-50 text-decoration-none hover-red">Juegos</a></li>
+                        <li class="mb-2"><a href="missions.html" class="text-white-50 text-decoration-none hover-red">Misiones</a></li>
+                        <li class="mb-2"><a href="contact.html" class="text-white-50 text-decoration-none hover-red">Contacto</a></li>
+                        <li class="mb-2"><a href="login.html" class="text-white-50 text-decoration-none hover-red">Iniciar Sesión</a></li>
+                        <li class="mb-2"><a href="register.html" class="text-white-50 text-decoration-none hover-red">Registrarse</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-4 mb-4 mb-lg-0">
+                    <h5 class="text-white fw-bold mb-3">Legal y Soporte</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none hover-red">Política de Privacidad</a></li>
+                        <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none hover-red">Términos de Servicio</a></li>
+                        <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none hover-red">Política de Cookies</a></li>
+                        <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none hover-red">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-4">
+                    <h5 class="text-white fw-bold mb-3">Contáctanos Directamente</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><i class="fas fa-envelope me-2 text-red-primary"></i> info@longbandgames.com</li>
+                        <li class="mb-2"><i class="fas fa-phone me-2 text-red-primary"></i> +1 (555) 123-4567</li>
+                        <li class="mb-2"><i class="fas fa-map-marker-alt me-2 text-red-primary"></i> Sarandí, Buenos Aires, Argentina</li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="border-secondary-subtle my-4">
+            <div class="text-center small text-white-50">
+                &copy; 2025 Long Band Games. Todos los derechos reservados.
+            </div>
+        </div>
+    </footer>
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="../js/main.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>
