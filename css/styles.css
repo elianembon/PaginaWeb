@@ -1,0 +1,104 @@
+/* Estilos generales */
+body {
+    padding-top: 56px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Banner principal */
+.banner-container {
+    position: relative;
+    margin-bottom: 2rem;
+}
+
+.banner-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+}
+
+/* Tarjetas de juegos */
+.card {
+    transition: transform 0.3s ease;
+    border: none;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card-img-top {
+    height: 200px;
+    object-fit: cover;
+}
+
+/* Secciones */
+section {
+    padding: 4rem 0;
+}
+
+/* Navbar */
+.navbar {
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand img {
+    transition: transform 0.3s ease;
+}
+
+.navbar-brand:hover img {
+    transform: scale(1.05);
+}
+
+/* Botones */
+.btn-primary {
+    background-color: #6c5ce7;
+    border-color: #6c5ce7;
+}
+
+.btn-primary:hover {
+    background-color: #5649c0;
+    border-color: #5649c0;
+}
+
+.btn-outline-primary {
+    color: #6c5ce7;
+    border-color: #6c5ce7;
+}
+
+.btn-outline-primary:hover {
+    background-color: #6c5ce7;
+    border-color: #6c5ce7;
+}
+
+/* Footer */
+footer {
+    background-color: #1a1a1a;
+}
+
+.social-icons a {
+    transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: #6c5ce7 !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .banner-overlay {
+        padding: 2rem;
+    }
+    
+    .banner-overlay h1 {
+        font-size: 2rem;
+    }
+    
+    .banner-overlay p {
+        font-size: 1rem;
+    }
+}
