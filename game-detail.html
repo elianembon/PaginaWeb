@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Detalle del Juego | Long Band Games</title>
-    <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome para íconos -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -36,7 +35,6 @@
     </style>
 </head>
 <body class="bg-dark-alt text-white">
-    <!-- Navbar (Copia y pega la Navbar de tu index.html aquí) -->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
             <a class="navbar-brand d-flex align-items-center" href="index.html">
@@ -98,7 +96,7 @@
         </div>
     </nav>
     
-    <main class="py-5 mt-5 bg-dark"> <!-- Añadir mt-5 para espacio de la navbar fija, y bg-dark para el fondo -->
+    <main class="py-5 mt-5 bg-dark"> 
         <div class="container">
             <div class="row">
                 <div class="col-lg-8">
@@ -106,7 +104,6 @@
                     
                     <!-- Video del juego -->
                     <div class="ratio ratio-16x9 mb-4 rounded shadow-lg overflow-hidden">
-                        <!-- Asegúrate de que la ruta del poster y el video sean correctas -->
                         <video controls poster="assets/images/game1.png">
                             <source src="assets/videos/trailer1.mp4" type="video/mp4">
                             Tu navegador no soporta el elemento de video.
@@ -131,11 +128,9 @@
                     <h3 class="mb-3 text-white">Capturas de pantalla</h3>
                     <div class="row g-3 mb-5">
                         <div class="col-6 col-md-4">
-                            <!-- Asegúrate de que la ruta de la imagen sea correcta -->
                             <img src="assets/images/game1-screenshot1.png" class="img-fluid rounded shadow-lg border border-secondary-subtle" alt="Captura 1">
                         </div>
                         <div class="col-6 col-md-4">
-                            <!-- Asegúrate de que la ruta de la imagen sea correcta -->
                             <img src="assets/images/game1-screenshot2.jpg" class="img-fluid rounded shadow-lg border border-secondary-subtle" alt="Captura 2">
                         </div>
                     </div>
@@ -186,7 +181,6 @@
                 
                 <div class="col-lg-4">
                     <div class="card shadow-lg sticky-top bg-dark-alt border-secondary-subtle" style="top: 80px;">
-                        <!-- Asegúrate de que la ruta de la imagen sea correcta -->
                         <img src="assets/images/game1.png" class="card-img-top" alt="Portada del juego">
                         <div class="card-body">
                             <div class="d-grid gap-2 mb-3">
@@ -217,8 +211,7 @@
             </div>
         </div>
     </main>
-    
-    <!-- Footer (Copia y pega el Footer de tu index.html aquí) -->
+
     <footer class="bg-black text-white-50 py-5">
         <div class="container">
             <div class="row">
@@ -277,16 +270,14 @@
         document.addEventListener('DOMContentLoaded', function() {
             const urlParams = new URLSearchParams(window.location.search);
             const gameId = urlParams.get('game');
-            
-            // Aquí iría la lógica para cargar los datos del juego correspondiente
-            // Por ahora usaremos datos estáticos como ejemplo
+
             if (gameId === '1') {
                 document.getElementById('game-title').textContent = 'Robo Beast';
                 document.getElementById('game-description').textContent = 'Cuando la soledad y el abandono rodea, tu compañia son los animales robots. Encuentralos y reparalos resolviendo puzzles y viajando en el tiempo.';
-                document.getElementById('game-genre').textContent = 'Aventura, Puzzle'; // Actualizar género
-                document.getElementById('game-platform').textContent = 'Windows, Mac'; // Actualizar plataforma
-                document.getElementById('game-release').textContent = '15/12/2025'; // Actualizar fecha
-                document.getElementById('game-developer').textContent = 'Long Band Games'; // Actualizar desarrollador
+                document.getElementById('game-genre').textContent = 'Aventura, Puzzle'; 
+                document.getElementById('game-platform').textContent = 'Windows, Mac'; 
+                document.getElementById('game-release').textContent = '15/12/2025'; 
+                document.getElementById('game-developer').textContent = 'Long Band Games'; 
                 
                 const features = [
                     'Historia emocionante con múltiples finales',
@@ -299,13 +290,13 @@
                 featuresList.innerHTML = '';
                 features.forEach(feature => {
                     const li = document.createElement('li');
-                    li.innerHTML = `<i class="fas fa-check-circle text-red-primary me-2"></i>${feature}`; // Añadir icono
+                    li.innerHTML = `<i class="fas fa-check-circle text-red-primary me-2"></i>${feature}`; 
                     featuresList.appendChild(li);
                 });
 
-                // Actualizar imágenes y video para Juego 1
+              
                 document.querySelector('.ratio video').poster = 'assets/images/game1.png';
-                document.querySelector('.ratio video source').src = 'assets/videos/trailer1.mp4'; // Asumiendo trailer1.mp4 para Aventura Épica
+                document.querySelector('.ratio video source').src = 'assets/videos/trailer1.mp4'; 
                 document.querySelector('.col-lg-4 .card-img-top').src = 'assets/images/game1.png';
                 document.querySelectorAll('.row.g-3.mb-5 img')[0].src = 'assets/images/game1-screenshot1.png';
                 document.querySelectorAll('.row.g-3.mb-5 img')[1].src = 'assets/images/game1-screenshot2.png';
@@ -332,14 +323,14 @@
                     featuresList.appendChild(li);
                 });
 
-                // Actualizar imágenes y video para Juego 2
+                
                 document.querySelector('.ratio video').poster = 'assets/images/game2.png';
                 document.querySelector('.ratio video source').src = 'assets/videos/trailer2.mp4';
                 document.querySelector('.col-lg-4 .card-img-top').src = 'assets/images/game2.png';
                 document.querySelectorAll('.row.g-3.mb-5 img')[0].src = 'assets/images/game2-screenshot1.png';
                 document.querySelectorAll('.row.g-3.mb-5 img')[1].src = 'assets/images/game2-screenshot2.png';
 
-                // Actualizar precio y disponibilidad para Juego 2
+            
                 document.querySelector('.col-lg-4 .card-body .badge').textContent = 'Disponible ahora';
                 document.querySelector('.col-lg-4 .card-body .badge').classList.remove('bg-primary');
                 document.querySelector('.col-lg-4 .card-body .badge').classList.add('bg-success');

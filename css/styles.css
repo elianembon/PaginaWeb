@@ -13,12 +13,12 @@ h1, h2, h3, h4, h5, h6 {
     color: #f8f8f8; /* Color de títulos */
 }
 
-/* Colores personalizados (variables CSS) */
+
 :root {
     --navbar-height: 120px;
     --bs-red-primary: #e63946; /* Un rojo vibrante */
     --bs-red-dark: #cc2a37; /* Rojo oscuro para hover/secciones */
-    --bs-blue-primary: #457b9d; /* Un azul para contrastes o acciones secundarias */
+    --bs-blue-primary: #457b9d; 
     --bs-blue-dark: #376484;
     --bs-dark-section: #121212; /* Gris oscuro para secciones */
     --bs-red-section-alt: #2A0A0A; /* Rojo oscuro alternativo para secciones */
@@ -95,7 +95,7 @@ h1, h2, h3, h4, h5, h6 {
     background-position: center;
     background-repeat: no-repeat;
     background-color: var(--bs-black);
-    min-height: 120px; /* Ajusta según necesites */
+    min-height: 120px; 
     border-bottom: 1px solid #222;
 }
 
@@ -108,8 +108,8 @@ h1, h2, h3, h4, h5, h6 {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0, 0, 0, 0.6); /* Ajusta la opacidad (0.0 a 1.0) */
-    z-index: -1; /* Coloca el overlay detrás del contenido de la navbar */
+    background-color: rgba(0, 0, 0, 0.6); 
+    z-index: -1; 
 }
 
 
@@ -129,7 +129,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .navbar-nav .nav-link {
-    font-weight: 600; /* Semi-bold para enlaces de navegación */
+    font-weight: 600; 
     text-transform: uppercase; /* Mayúsculas para los enlaces */
     letter-spacing: 0.8px;
     padding: 0.8rem 1.2rem;
@@ -171,7 +171,7 @@ h1, h2, h3, h4, h5, h6 {
     align-items: center;
     justify-content: center;
     text-shadow: 0 2px 8px rgba(0,0,0,0.6);
-    padding-top: 80px; /* Para compensar la navbar fija */
+    padding-top: 80px;
 }
 
 .hero-section::before {
@@ -249,10 +249,10 @@ section {
 }
 .card-img-top {
     height: 200px; /* Altura fija para las imágenes de las tarjetas de juego */
-    object-fit: cover; /* Asegura que la imagen cubra el área sin distorsionarse */
+    object-fit: cover; 
 }
 
-/* Estilos específicos para Misiones (desde missions.html) */
+
 .mission-card {
     transition: all 0.3s ease;
     border-left: 4px solid transparent;
@@ -265,12 +265,12 @@ section {
 
 .mission-card.completed {
     border-left-color: var(--bs-red-primary);
-    background-color: rgba(var(--bs-red-primary-rgb), 0.08); /* Usa la variable RGB */
+    background-color: rgba(var(--bs-red-primary-rgb), 0.08); 
 }
 
 .mission-card.in-progress {
     border-left-color: var(--bs-blue-primary);
-    background-color: rgba(var(--bs-blue-primary-rgb), 0.08); /* Usa la variable RGB */
+    background-color: rgba(var(--bs-blue-primary-rgb), 0.08); 
 }
 
 .reward-badge {
@@ -352,7 +352,7 @@ section {
     color: rgba(255,255,255,0.3) !important; /* Texto más tenue para deshabilitado */
 }
 
-/* Estilos específicos para la página de Contacto (contact.html) */
+
 .list-group-item {
     background-color: var(--bs-dark-alt);
     border: 1px solid var(--bs-secondary-subtle);
@@ -392,7 +392,7 @@ section {
     padding: 2rem;
 }
 .btn-close {
-    filter: invert(1) grayscale(100%) brightness(200%); /* Hace el botón de cerrar blanco */
+    filter: invert(1) grayscale(100%) brightness(200%); 
 }
 .form-label {
     color: #e0e0e0;
@@ -413,7 +413,7 @@ section {
 
 /* Footer */
 .logo-footer {
-    height: 60px; /* Tamaño del logo en el footer */
+    height: 60px; 
     border-radius: 8px;
 }
 .social-icons a {

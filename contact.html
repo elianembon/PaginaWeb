@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contacto | Long Band Games</title>
-    <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome para íconos -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -53,7 +52,7 @@
             padding: 2rem;
         }
         .btn-close {
-            filter: invert(1) grayscale(100%) brightness(200%); /* Hace el botón de cerrar blanco */
+            filter: invert(1) grayscale(100%) brightness(200%); 
         }
         .form-label {
             color: #e0e0e0;
@@ -74,7 +73,7 @@
     </style>
 </head>
 <body class="bg-dark-alt text-white">
-    <!-- Navbar (Copia y pega la Navbar de tu index.html aquí) -->
+   
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
             <a class="navbar-brand d-flex align-items-center" href="index.html">
@@ -136,7 +135,7 @@
         </div>
     </nav>
     
-    <main class="py-5 mt-5 bg-dark"> <!-- Añadir mt-5 para espacio de la navbar fija, y bg-dark para el fondo -->
+    <main class="py-5 mt-5 bg-dark">
         <div class="container">
             <div class="row">
                 <div class="col-lg-6">
@@ -266,7 +265,7 @@
         </div>
     </div>
     
-    <!-- Footer (Copia y pega el Footer de tu index.html aquí) -->
+    
     <footer class="bg-black text-white-50 py-5">
         <div class="container">
             <div class="row">
@@ -321,7 +320,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
     <script src="js/main.js"></script>
     <script>
-        // Configurar el modal según el tipo de contacto
+      
         document.addEventListener('DOMContentLoaded', function() {
             const contactModal = document.getElementById('contactModal');
             
@@ -330,7 +329,7 @@
             const initialContactType = urlParams.get('type');
 
             if (initialContactType) {
-                // Simular el clic en el botón para activar el modal con el tipo correcto
+                // Simular el clik en el botón para activar el modal con el tipo correcto
                 const targetButton = document.querySelector(`[data-type="${initialContactType}"]`);
                 if (targetButton) {
                     const modal = new bootstrap.Modal(contactModal);
@@ -339,7 +338,7 @@
             }
 
             contactModal.addEventListener('show.bs.modal', function(event) {
-                const button = event.relatedTarget || document.querySelector(`[data-type="${initialContactType}"]`); // Usar el botón que activó el modal o el de la URL
+                const button = event.relatedTarget || document.querySelector(`[data-type="${initialContactType}"]`); 
                 const contactType = button ? button.getAttribute('data-type') : 'general'; // Default a 'general' si no hay botón
                 
                 const modalTitle = contactModal.querySelector('.modal-title');
@@ -359,7 +358,7 @@
                     case 'general':
                         modalTitle.textContent = 'Contacto general';
                         subjectField.style.display = 'block';
-                        // Asegurarse de que el campo de asunto sea requerido para contacto general
+                        
                         contactModal.querySelector('#subject').setAttribute('required', 'required');
                         contactModal.querySelector('#cv').removeAttribute('required');
                         break;
@@ -372,7 +371,7 @@
                     case 'job':
                         modalTitle.textContent = 'Trabaja con nosotros';
                         cvField.style.display = 'block';
-                        // Asegurarse de que el campo de CV sea requerido para trabajo
+                        
                         contactModal.querySelector('#cv').setAttribute('required', 'required');
                         contactModal.querySelector('#subject').removeAttribute('required');
                         break;
@@ -384,12 +383,11 @@
                 const form = contactModal.querySelector('form');
                 form.classList.remove('was-validated');
                 form.reset();
-                // Asegurarse de resetear los atributos 'required' al estado inicial o por defecto
                 contactModal.querySelector('#subject').setAttribute('required', 'required');
                 contactModal.querySelector('#cv').removeAttribute('required');
             });
 
-            // Bootstrap 5 form validation
+           
             const form = contactModal.querySelector('form');
             form.addEventListener('submit', function(event) {
                 if (!form.checkValidity()) {
