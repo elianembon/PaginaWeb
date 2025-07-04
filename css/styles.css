@@ -5,6 +5,7 @@ body {
     background-color: #1A0000; /* Fondo rojo muy oscuro, casi negro con un tinte */
     color: #e0e0e0; /* Color de texto general */
     overflow-x: hidden; /* Previene scroll horizontal */
+    padding-top: calc(var(--navbar-height) + 10px); /* margen visual extra */
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -14,6 +15,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Colores personalizados (variables CSS) */
 :root {
+    --navbar-height: 120px;
     --bs-red-primary: #e63946; /* Un rojo vibrante */
     --bs-red-dark: #cc2a37; /* Rojo oscuro para hover/secciones */
     --bs-blue-primary: #457b9d; /* Un azul para contrastes o acciones secundarias */
