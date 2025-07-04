@@ -96,7 +96,6 @@ h1, h2, h3, h4, h5, h6 {
     background-repeat: no-repeat; /* Evita que la imagen se repita */
     background-color: var(--bs-black); /* Color de respaldo si la imagen no carga */
     border-bottom: 1px solid #222;
-    overflow: hidden; /* Para que el pseudo-elemento no se desborde */
 }
 
 .navbar::before {
