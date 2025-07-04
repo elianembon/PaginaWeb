@@ -166,7 +166,6 @@ h1, h2, h3, h4, h5, h6 {
 .hero-section {
     position: relative;
     height: 100vh; /* Altura completa de la ventana */
-    background: url('../assets/images/hero-bg.jpg') no-repeat center center/cover; /* Imagen de fondo */
     display: flex;
     align-items: center;
     justify-content: center;
