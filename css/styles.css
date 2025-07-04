@@ -1,104 +1,269 @@
-/* Estilos generales */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto:wght@400;700&family=Inter:wght@400;600;800&display=swap');
+
 body {
-    padding-top: 56px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Inter', sans-serif; /* Fuente principal para el cuerpo */
+    background-color: #1A0000; /* Fondo rojo muy oscuro, casi negro con un tinte */
+    color: #e0e0e0; /* Color de texto general */
+    overflow-x: hidden; /* Previene scroll horizontal */
 }
 
-/* Banner principal */
-.banner-container {
-    position: relative;
-    margin-bottom: 2rem;
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Montserrat', sans-serif; /* Fuente para títulos, más impactante */
+    color: #f8f8f8; /* Color de títulos */
 }
 
-.banner-overlay {
+/* Colores personalizados (variables CSS) */
+:root {
+    --bs-red-primary: #e63946; /* Un rojo vibrante */
+    --bs-red-dark: #cc2a37; /* Rojo oscuro para hover/secciones */
+    --bs-blue-primary: #457b9d; /* Un azul para contrastes o acciones secundarias */
+    --bs-blue-dark: #376484;
+    --bs-dark-section: #121212; /* Gris oscuro para secciones */
+    --bs-red-section-alt: #2A0A0A; /* Rojo oscuro alternativo para secciones */
+    --bs-black: #0c0c0c; /* Más oscuro para footer y navbar */
+    --bs-secondary-subtle: #333; /* Para bordes y líneas sutiles */
+    --bs-muted-light: #b0b0b0; /* Texto secundario más claro */
+    --bs-navbar-bg-image: url('../assets/images/banner.png');
+}
+
+/* Clases de texto y fondo basadas en variables */
+.text-red-primary { color: var(--bs-red-primary) !important; }
+.bg-dark { background-color: var(--bs-dark-section) !important; } /* Sección gris oscuro */
+.bg-red-dark-alt { background-color: var(--bs-red-section-alt) !important; } /* Sección roja oscura alternativa */
+.bg-black { background-color: var(--bs-black) !important; } /* El más oscuro para footer/navbar */
+.border-secondary-subtle { border-color: var(--bs-secondary-subtle) !important; }
+.text-muted-light { color: var(--bs-muted-light) !important; }
+
+/* Botones personalizados */
+.btn-red-primary {
+    background-color: var(--bs-red-primary);
+    border-color: var(--bs-red-primary);
+    color: #fff;
+    transition: all 0.3s ease;
+}
+.btn-red-primary:hover {
+    background-color: var(--bs-red-dark);
+    border-color: var(--bs-red-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.btn-blue-primary {
+    background-color: var(--bs-blue-primary);
+    border-color: var(--bs-blue-primary);
+    color: #fff;
+    transition: all 0.3s ease;
+}
+.btn-blue-primary:hover {
+    background-color: var(--bs-blue-dark);
+    border-color: var(--bs-blue-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.btn-custom-outline {
+    border: 2px solid var(--bs-red-primary);
+    color: var(--bs-red-primary);
+    background-color: transparent;
+    transition: all 0.3s ease;
+}
+.btn-custom-outline:hover {
+    background-color: var(--bs-red-primary);
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.btn-custom-solid {
+    background-color: var(--bs-blue-primary); /* Color para el botón de registro */
+    border-color: var(--bs-blue-primary);
+    color: #fff;
+    transition: all 0.3s ease;
+}
+.btn-custom-solid:hover {
+    background-color: var(--bs-blue-dark);
+    border-color: var(--bs-blue-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+/* Navbar */
+.navbar {
+    /* Aquí se define la imagen de fondo para la navbar */
+    background-image: var(--bs-navbar-bg-image);
+    background-size: cover; /* Cubre toda el área de la navbar */
+    background-position: center; /* Centra la imagen */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    background-color: var(--bs-black); /* Color de respaldo si la imagen no carga */
+    border-bottom: 1px solid #222;
+    overflow: hidden; /* Para que el pseudo-elemento no se desborde */
+}
+
+.navbar::before {
+    content: '';
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0, 0, 0, 0.5);
-    display: flex;
-    align-items: center;
+    background-color: rgba(0, 0, 0, 0.6); /* Ajusta la opacidad (0.0 a 1.0) */
+    z-index: -1; /* Coloca el overlay detrás del contenido de la navbar */
 }
 
-/* Tarjetas de juegos */
-.card {
-    transition: transform 0.3s ease;
-    border: none;
-}
-
-.card:hover {
-    transform: translateY(-5px);
-}
-
-.card-img-top {
-    height: 200px;
-    object-fit: cover;
-}
-
-/* Secciones */
-section {
-    padding: 4rem 0;
-}
-
-/* Navbar */
-.navbar {
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
-
-.navbar-brand img {
+.logo-navbar {
+    height: 50px; /* Tamaño del logo en la navbar */
+    border-radius: 8px; /* Bordes ligeramente redondeados */
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
     transition: transform 0.3s ease;
 }
-
-.navbar-brand:hover img {
+.logo-navbar:hover {
     transform: scale(1.05);
 }
 
-/* Botones */
-.btn-primary {
-    background-color: #6c5ce7;
-    border-color: #6c5ce7;
+.navbar-brand span {
+    letter-spacing: 1.5px; /* Espaciado entre letras para el texto del logo */
 }
 
-.btn-primary:hover {
-    background-color: #5649c0;
-    border-color: #5649c0;
+.navbar-nav .nav-link {
+    font-weight: 600; /* Semi-bold para enlaces de navegación */
+    text-transform: uppercase; /* Mayúsculas para los enlaces */
+    letter-spacing: 0.8px;
+    padding: 0.8rem 1.2rem;
+    transition: all 0.3s ease;
+    color: rgba(255,255,255,0.7); /* Color por defecto */
+}
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active {
+    color: var(--bs-red-primary) !important; /* Resaltar al pasar el ratón y activo */
+}
+.navbar-nav .nav-link.active {
+    border-bottom: 2px solid var(--bs-red-primary); /* Subrayado para activo */
 }
 
-.btn-outline-primary {
-    color: #6c5ce7;
-    border-color: #6c5ce7;
+.dropdown-menu {
+    background-color: var(--bs-black);
+    border: 1px solid var(--bs-secondary-subtle);
+    border-radius: 0.5rem;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.4);
+}
+.dropdown-menu .dropdown-item {
+    color: #e0e0e0;
+    transition: all 0.2s ease;
+}
+.dropdown-menu .dropdown-item:hover {
+    background-color: var(--bs-dark-section);
+    color: var(--bs-red-primary);
+}
+.dropdown-menu .dropdown-divider {
+    border-top-color: var(--bs-secondary-subtle);
 }
 
-.btn-outline-primary:hover {
-    background-color: #6c5ce7;
-    border-color: #6c5ce7;
+/* Hero Section */
+.hero-section {
+    position: relative;
+    height: 100vh; /* Altura completa de la ventana */
+    background: url('../assets/images/hero-bg.jpg') no-repeat center center/cover; /* Imagen de fondo */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.6);
+    padding-top: 80px; /* Para compensar la navbar fija */
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0.4)); /* Degradado oscuro */
+    z-index: 0;
+}
+
+.hero-content {
+    animation: fadeInScale 1s ease-out forwards;
+    opacity: 0;
+    transform: scale(0.98);
+}
+.hero-content.is-visible {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Animaciones */
+@keyframes fadeInScale {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+}
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-in-up { animation: fadeInUp 0.8s ease-out forwards; opacity: 0; }
+.delay-1 { animation-delay: 0.2s; }
+.delay-2 { animation-delay: 0.4s; }
+.delay-3 { animation-delay: 0.6s; }
+.delay-4 { animation-delay: 0.8s; }
+@keyframes fadeInLeft {
+    from { opacity: 0; transform: translateX(-30px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+@keyframes fadeInRight {
+    from { opacity: 0; transform: translateX(30px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+.animate-fade-in-left { animation: fadeInLeft 0.8s ease-out forwards; opacity: 0; }
+.animate-fade-in-right { animation: fadeInRight 0.8s ease-out forwards; opacity: 0; }
+
+
+/* Secciones Generales */
+section {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+}
+@media (min-width: 992px) {
+    section {
+        padding-top: 6rem;
+        padding-bottom: 6rem;
+    }
+}
+
+/* Estilos de Tarjetas (Cards) */
+.card {
+    background-color: var(--bs-dark-alt); /* Fondo de tarjeta gris oscuro */
+    border: 1px solid var(--bs-secondary-subtle);
+    border-radius: 0.75rem;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+.card-hover-effect:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+    border-color: var(--bs-red-primary); /* Borde rojo al pasar el ratón */
+}
+.card-img-top {
+    height: 200px; /* Altura fija para las imágenes de las tarjetas de juego */
+    object-fit: cover; /* Asegura que la imagen cubra el área sin distorsionarse */
 }
 
 /* Footer */
-footer {
-    background-color: #1a1a1a;
+.logo-footer {
+    height: 60px; /* Tamaño del logo en el footer */
+    border-radius: 8px;
 }
-
 .social-icons a {
+    font-size: 1.5rem;
     transition: color 0.3s ease;
 }
-
-.social-icons a:hover {
-    color: #6c5ce7 !important;
+.social-icons a.hover-red:hover {
+    color: var(--bs-red-primary) !important;
 }
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    .banner-overlay {
-        padding: 2rem;
-    }
-    
-    .banner-overlay h1 {
-        font-size: 2rem;
-    }
-    
-    .banner-overlay p {
-        font-size: 1rem;
-    }
+.footer .list-unstyled a {
+    color: rgba(255,255,255,0.7);
+    transition: color 0.3s ease;
+}
+.footer .list-unstyled a.hover-red:hover {
+    color: var(--bs-red-primary) !important;
 }
